@@ -61,8 +61,8 @@ class Dog
     end.first
   end
   
-  def self.find_or_create_by(name:, breed:)
-    dog = 'SELECT * FROM dogs WHERE name = ? AND breed = ?, name, breed' 
+  def self.find_or_create_by(id)
+    dog = 'SELECT * FROM dogs WHERE id = ? AND breed = ?, id' 
     if !dog.empty?
       data = dog[0]
       hash = {id: data[0], name: data[1], breed: data[2]}
