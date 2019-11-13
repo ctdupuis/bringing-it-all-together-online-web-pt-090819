@@ -4,8 +4,10 @@ class Dog
   
   @@all = []
   
-  def initialize(hash)
-    hash.each {|key, value| self.send(("#{key}="), value)}
+  def initialize(id: nil, name:, breed:)
+    @id = id
+    @name = name
+    @breed = breed
   end
   
   def self.create_table
