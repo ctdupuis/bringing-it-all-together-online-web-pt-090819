@@ -51,7 +51,6 @@ class Dog
   
   def self.new_from_db(row)
     hash = {id: row[0], name: row[1], breed: row[2]}
-    # binding.pry
     self.new(hash)
   end
   
@@ -66,7 +65,8 @@ class Dog
     dog = 'SELECT * FROM dogs WHERE name = ? AND breed = ?, name, breed' 
     if !dog.empty?
       data = dog[0]
-      dog = Dog.new(data[0], data[1], data[2])
+      hash = {id: data[0], name: data[1], breed: data[2]}
+      dog = Dog.new(hash)
     else
       dog = self.create(name: name, breed: breed)
     end
