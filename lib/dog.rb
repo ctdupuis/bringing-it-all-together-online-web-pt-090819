@@ -66,7 +66,7 @@ class Dog
     dog = 'SELECT * FROM dogs WHERE name = ? AND breed = ?, name, breed' 
     if !dog.empty?
       data = dog[0]
-      dog = Song.new(data[0], data[1], data[2])
+      dog = Dog.new(data[0], data[1], data[2])
     else
       dog = self.create(name: name, breed: breed)
     end
