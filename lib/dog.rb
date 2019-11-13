@@ -75,6 +75,7 @@ class Dog
         SQL
         
     dog = DB[:conn].execute(sql, name, breed) 
+    
     if !dog.empty?
       data = dog[0]
       hash = {id: data[0], name: data[1], breed: data[2]}
