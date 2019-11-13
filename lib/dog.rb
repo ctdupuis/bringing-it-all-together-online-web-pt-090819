@@ -58,15 +58,15 @@ class Dog
     self.new(self.id, self.name, self.breed)
   end
   
-  def self.find_by_id(name:, breed:)
-    sql = "SELECT * FROM dogs WHERE name = ? AND breed = ? LIMIT 1"
+  def self.find_by_id(id)
+    sql = "SELECT * FROM dogs WHERE id = ? LIMIT 1"
     DB[:conn].execute(sql, id).map do |row|
       self.new_from_db(row)
     end.first
   end
   
   def self.find_or_create_by(id)
-    dog = 'SELECT * FROM dogs WHERE id = ?, id' 
+    dog = 'SELECT * FROM dogs WHERE name = ? AND breed = ?, name, breed' 
     if !dog.empty?
       data = dog[0]
       hash = {id: data[0], name: data[1], breed: data[2]}
