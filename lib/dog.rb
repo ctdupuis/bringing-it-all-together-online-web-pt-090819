@@ -65,7 +65,7 @@ class Dog
   def self.find_or_create_by(name:, breed:)
     dog = 'SELECT * FROM dogs WHERE name = ? AND breed = ?, name, breed' 
     if !dog.empty?
-      
+      data = dog[0]
     else
     end
   end
